@@ -1,0 +1,15 @@
+1000,Chocolate
+2000,Cookie
+3000,Chocolate
+
+4000,Cookie
+
+5000,Cake
+6000,Cookie
+
+7000,Chocolate
+8000,Cake
+9000,Cake
+
+10000,Cookie
+-------------------------------------------------
