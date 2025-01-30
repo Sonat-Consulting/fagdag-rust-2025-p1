@@ -50,4 +50,12 @@ fn main() {
              }
          }
      }
+
+    let mut iter = vec![10, 20, 30].into_iter();
+
+    while let Some(value) = iter.next() {
+        println!("Got: {}", value);
+    }
+    
+    
  }

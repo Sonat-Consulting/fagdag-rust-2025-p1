@@ -1,4 +1,4 @@
-// cargo run --example ex_1_vec_array
+// cargo run --example ex_3_vec_array
 
 fn main() {
     let mut arr: [i32; 5] = [10, 20, 30, 40, 50]; // Fixed-size array

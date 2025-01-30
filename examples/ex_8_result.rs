@@ -1,6 +1,6 @@
 use std::error::Error;
 
-// cargo run --example ex_7_result
+// cargo run --example ex_8_result
 
 /**
 

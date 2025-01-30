@@ -5,36 +5,27 @@ struct Person {
     age: u8,
     is_active: bool,
 }
-/*
-    You can define methods for structs using impl blocks.
-    Methods can take &self (immutable reference), &mut self (mutable reference), or self (ownership).
- */
-
-
-impl Person {
-    // Immutable method
-    fn display(&self) {
-        println!("Name: {}, Age: {}", self.name, self.age);
-    }
-
-    // Mutable method
-    fn birthday(&mut self) {
-        self.age += 1;
-    }
-
-    // Associated function (no self parameter)
-    fn new(name: String, age: u8) -> Self {
-        Person {
-            name,
-            age,
-            is_active: true,
-        }
-    }
-}
 
 fn main() {
-    let mut person = Person::new(String::from("Ola"), 40);
-    person.display();
-    person.birthday();
-    person.display();
+
+    // To create an instance of a struct, you specify values for each field.
+    let person = Person {
+        name: String::from("Alice"),
+        age: 30,
+        is_active: true,
+    };
+
+    // You can access struct fields using dot notation.
+    println!("Name: {}", person.name);
+    println!("Age: {}", person.age);
+    println!("Active: {}", person.is_active);
+
+    // If a struct instance is mutable, you can modify its fields.
+    let mut person = Person {
+        name: String::from("Bob"),
+        age: 25,
+        is_active: false,
+    };
+
+    person.age = 26; // Modify the age field
 }

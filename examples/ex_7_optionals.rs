@@ -1,4 +1,4 @@
-// cargo run --example ex_6_optionals
+// cargo run --example ex_7_optionals
 
 /**
     Rust uses the Option<T> enum to represent optional values, meaning a value that might or might not exist.
