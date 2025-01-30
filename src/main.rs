@@ -1,27 +1,18 @@
-#[derive(Debug)]
+
+
 enum Snack {
     Chocolate,
     Cookie,
-    Cake,
+    Cake
 }
 
-#[derive(Debug)]
 struct Item {
-    snack: Snack,
-    calorie: u32
+    calorie: u32,
+    snack: Snack
 }
-
-#[derive(Debug)]
 struct Elf {
-    backpack: Vec<Item>
+    items: Vec<Item>
 }
-
-impl Elf {
-    fn tot_calories(&self) -> u32 {
-        self.backpack.iter().map(|item| item.calorie).sum()
-    }
-}
-
 fn main() {
     let input = include_str!("../input.txt");
 
@@ -29,33 +20,30 @@ fn main() {
     let mut items = Vec::new();
 
     for line in input.lines() {
-       if let Some((calorie, snack)) = line.split_once(",") {
-            let calorie = calorie.parse::<u32>().expect("Should be a number");
+        if let Some((calorie, snack)) = line.split_once(",") {
+            let calorie = calorie.parse::<u32>().unwrap();
 
             let snack = match snack {
                 "Chocolate" => Snack::Chocolate,
-                "Cookie" => Snack::Cookie,
                 "Cake" => Snack::Cake,
-                _ => panic!("Illegal Snack {snack}")
+                "Cookie" => Snack::Cookie,
+                _ => panic!("Illegal snack {}", snack)
             };
 
             items.push(Item {
-                snack,
-                calorie
+                calorie,
+                snack
+            });
+        } else if line.is_empty() || line.starts_with("---") {
+            elves.push(Elf {
+                items
             });
 
-       } else if line.is_empty() || line.starts_with("---") {
-           elves.push(Elf {
-               backpack: items
-           });
-           items = Vec::new();
-       }
-    }
+            items = Vec::new();
+        }
 
-    let max = elves.iter().map(|x| x.tot_calories()).max();
-    if let Some(max) = max {
-        println!("{max}");
-    } else {
-        println!("Unable to get the max value");
+        for e in &elves {
+            println!("{:?}", e);
+        }
     }
 }
